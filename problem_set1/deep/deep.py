@@ -7,5 +7,7 @@ elif question == 'forty-two':
     print("yes")
 elif question == 'forty two':
     print("yes")
+elif question == 'forty two':
+    print("yes")
 else :
     print("No")

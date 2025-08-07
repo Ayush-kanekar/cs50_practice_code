@@ -1,0 +1,8 @@
+greating = str(input("greating: "))
+lowered_greating = greating.lower().lstrip()
+if lowered_greating.startswith ("hello") :
+    print("$0")
+elif  lowered_greating.startswith("h"):
+    print("$20")
+else :
+    print("$100")
