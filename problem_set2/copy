@@ -1,0 +1,63 @@
+#requrments
+#start with two letters "ab ...."
+###max 6 characters min 2 characters
+## numbers cant be in middle like aaa22a invalid ; aaa222 valid 
+## no periods,spaces , punctuation marks 
+
+def main():
+    plate = input("plate: ")
+    if is_valid(plate):
+        print("valid")
+    else:
+        print("invalid")
+def Two_char(s):
+    if s[0:2].isalpha():
+        print("Two_char is working")
+        return True
+    else:
+        print("Two_char is not working")
+        return False
+def length_correct(s):
+    if len(s) <= 6:
+        print("length_correct is working")
+        return True
+    else:
+        print("length_correct is not working")
+        return False
+def correct_digit(s):
+    if s[2:6].isdigit() or s[3:6].isdigit():
+        print("correct_digit is working")
+        return True
+    else:
+        print("correct_digit is not working")
+        return False
+def not_zero(s):
+    for char in s:
+        if char.isdigit():
+            if char == "0":
+                print("not_zero is not working")
+                return False
+            else:
+                print("not_zero is working")
+                return True
+            break
+##def not_letter_last(s):
+    ##THis next time 
+    ## sufix cannot work cause the HLLow is valid
+def no_digits(s):
+    if not s.isdigit():
+            print("working")
+def is_valid(s):
+        check1 = Two_char(s)
+        check2 = length_correct(s)
+        check3 = correct_digit(s)
+        check4 = not_zero(s)
+        check5 = no_digits(s)
+        return check1 and check2 or check5 and check3 and check4
+
+main()
+
+
+
+
+
