@@ -1,5 +1,5 @@
 greating = str(input("greating: "))
-lowered_greating = greating.lower().lstrip()
+lowered_greating = greating.lower()
 if lowered_greating.startswith ("hello") :
     print("$0")
 elif  lowered_greating.startswith("h"):
