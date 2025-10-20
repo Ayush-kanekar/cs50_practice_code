@@ -3,65 +3,44 @@ import random
 
 def main():
     level = get_level()
-    num = generate_integer(level)
+    score = 0
+    for i in range(10):
+        x = generate_integer(level)
+        y =  generate_integer(level)
+        tries = 0
+        while tries < 3:
+            try:
+                print(f"{x} + {y} = ",end="")
+                ans = int(input())
+                if ans == x + y:
+                    score += 1
+                    break
+                else:
+                    print("EEE")
+                    tries += 1
+            except ValueError:
+                print("EEE")
+                tries += 1
+        if tries == 3:
+            print(f"{x} + {y} = {x + y}")
+    print(f"Score: {score}")
 
 def get_level():
     while True:
         try:
-            x = int(input("Level: "))
-            if x in (1,2,3):
-                return x
+            level = int(input("Level: "))
+            if level in [1,2,3]:
+                return level
         except ValueError:
             pass
 
-def generate_integer(lev):
-    que = 0
-    correct = 0
-    tries = 0
-    if lev == 1:
-        for que in range(10):
-            x = random.randint(0,9)
-            y = random.randint(0,9)
-            while True:
-                z = y + x
-                try:
-                    if tries == 3:
-                        print(f"{x} + {y} = {z}")
-                        print('que',que)
-                        que += 1
-                        tries = 0
-                        print('que',que)
-                        break
-                    ans = int(input(f"{x} + {y} = "))
-                    if ans == z:
-                        correct = correct + 1
-                        que += 1
-                        tries= 0
-                        print("tries",tries)
-                        break
-                    else:
-                        tries += 1
-                        print('tries',tries)
-                        print("EEE")
-                        continue
-                except ValueError:
-                    tries += 1
-    print("que",que)
-
-def get_int(x,y):
-    #To take input from the user about the answer
-    tr = 0
-    while True:
-        try:
-            if tr == 3:
-                break
-            answer 
-            return answer
-        except ValueError:
-            tr += 1
-            pass
-
-
-
+def generate_integer(level):
+        if level == 1:
+            start,end = 0,9
+        elif level == 2:
+            start,end = 10,99
+        else:
+            start, end = 100,999
+        return random.randint(start, end)
 if __name__ == "__main__":
     main()
